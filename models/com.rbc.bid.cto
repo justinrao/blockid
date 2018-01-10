@@ -12,14 +12,14 @@ asset PersonalClient extends Client {
     o String firstName
     o String lastName
     o DateTime dateOfBirth
-    o Address currentAddres
+    o Address currentAddress
     o Address mailingAddress
     o String sinNumber
 }
 
 concept Address {
-    o String line1
-    o String line2
+    o String addressLine1
+    o String addressLine2
     o String city
     o String province
     o String country
@@ -36,7 +36,6 @@ concept Identification {
 enum IdentificationType {
     o DRIVERS_LICENSE
     o PASSPORT
-    o CITY
 }
 
 enum KycStatus {
