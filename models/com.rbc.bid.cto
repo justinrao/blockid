@@ -1,29 +1,29 @@
 /**
- * My commodity trading network
+ * My Block ID Business Network
  */
-
 namespace com.rbc.bid
 
 asset Client identified by clientId {
     o String clientId
-  
+    o KycStatus KycStatus
 }
 
 asset PersonalClient extends Client {
     o String firstName
     o String lastName
+    o DateTime dateOfBirth
     o Address currentAddres
     o Address mailingAddress
     o String sinNumber
 }
 
 concept Address {
-    o String street
-    o String house
+    o String line1
+    o String line2
     o String city
-    o String county
+    o String province
     o String country
-    o String zip
+    o String postalCode
 }
 
 concept Identification {
@@ -37,4 +37,10 @@ enum IdentificationType {
     o DRIVERS_LICENSE
     o PASSPORT
     o CITY
+}
+
+enum KycStatus {
+    o INIT
+    o INPROGRESS
+    o DONE
 }

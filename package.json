@@ -1,9 +1,10 @@
 {
-  "name": "tutorial-network",
+  "name": "blockid-network",
   "version": "0.0.1",
-  "description": "hyperleger composer tutorial",
+  "description": "hyperleger composer - block ID business network",
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "pack": "composer archive create -t dir -n ."
   },
   "author": "Justin Rao",
   "email": "justin.rao@rbc.com",
