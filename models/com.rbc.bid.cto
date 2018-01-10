@@ -13,8 +13,9 @@ asset PersonalClient extends Client {
     o String lastName
     o DateTime dateOfBirth
     o Address currentAddress
-    o Address mailingAddress
+    o Address mailingAddress optional
     o String sinNumber
+    o String phoneNumber
 }
 
 concept Address {
