@@ -31,23 +31,13 @@ composer network ping --card admin@blockid-network
 
 Updating the network after making changes to the models
 ```
-composer network update -c admin@blockid -a blockid-network@0.0.1.bna
+composer network update -c admin@blockid-network -a blockid-network@0.0.1.bna
 ```
 
 
 # Run the webserver (Swagger)
 ```
-composer-rest-server
-```
-
-Credentials:
-```
-admin@blockid-network
-never use namespaces
-N
-Y
-N
-
+composer-rest-server -c admin@blockid-network -n never -w true
 ```
 
 # Setting up and Destroying Fabric environment

@@ -6,16 +6,14 @@ namespace com.rbc.bid
 asset Client identified by clientId {
     o String clientId
     o KycStatus KycStatus
-}
-
-asset PersonalClient extends Client {
     o String firstName
     o String lastName
     o DateTime dateOfBirth
     o Address currentAddress
-    o Address mailingAddress optional
     o String sinNumber
     o String phoneNumber
+    o Identification identification
+    --> Document[] documents optional
 }
 
 concept Address {
@@ -31,16 +29,27 @@ concept Identification {
     o IdentificationType type
     o String idNumber
     o String expiry
-    o String image
 }
 
 enum IdentificationType {
     o DRIVERS_LICENSE
     o PASSPORT
+    o CITIZENSHIP_CARD
 }
 
 enum KycStatus {
     o INIT
     o INPROGRESS
     o DONE
+}
+
+asset Document identified by documentId {
+    o String documentId
+    o IdentificationType documentType
+    o String content
+}
+
+transaction AddDocumentToClient {
+  --> Client client
+  --> Document document
 }
