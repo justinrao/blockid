@@ -3,17 +3,34 @@
  */
 namespace com.rbc.bid
 
-asset Client identified by clientId {
-    o String clientId
+asset Client identified by clientBID {
+    o String clientBID
+    o String legalName
+    o Boolean publicCompany
+    o String holdingCompany
+    
+    o Address legalAddress
+    o String countryOfOperation
+
+    o String countryOfIncoporation
+    o DateTime dateOfIncoporation
+    o Contact contact
     o KycStatus KycStatus
-    o String firstName
-    o String lastName
-    o DateTime dateOfBirth
-    o Address currentAddress
-    o String sinNumber
-    o String phoneNumber
     o Identification identification
     --> Document[] documents optional
+    o Person[] directors optional
+}
+
+concept Person {
+  o String name
+  o DateTime dateOfBirth 
+  o Integer percentOfHolding
+}
+
+concept Contact {
+    o String contactPersonalName
+    o String phoneNumber
+    o Address contactAddress
 }
 
 concept Address {

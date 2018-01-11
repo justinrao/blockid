@@ -22,5 +22,6 @@
     "istanbul": "latest",
     "mkdirp": "latest",
     "mocha": "latest"
-  }
+  },
+  "dependencies": {}
 }
