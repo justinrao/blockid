@@ -4,10 +4,11 @@
   "description": "hyperleger composer - block ID business network",
   "scripts": {
     "test": "mocha --recursive",
-    "update-bn": "composer network update -c admin@blockid-network -a blockid-network@0.0.1.bna",
-    "pack-bn": "composer archive create -t dir -n .",
-    "start-bn-api": "composer-rest-server -c admin@blockid-network -n never -w true",
-    "update-api": "npm run pack-bn && npm run update-bn && npm run start-bn-api"
+    "update": "composer network update -c admin@blockid-network -a blockid-network@0.0.1.bna",
+    "pack": "composer archive create -t dir -n .",
+    "start-api": "composer-rest-server -c admin@blockid-network -n never -w true",
+    "update-api": "npm run pack && npm run update && npm run start-api",
+    "ping": "composer network ping --card admin@blockid-network"
   },
   "author": "Justin Rao",
   "email": "justin.rao@rbc.com",

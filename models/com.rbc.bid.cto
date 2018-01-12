@@ -6,7 +6,6 @@ namespace com.rbc.bid
 asset Client identified by clientBID {
     o String clientBID
     o String legalName
-    o Boolean publicCompany
     o String holdingCompany
     
     o Address legalAddress
@@ -16,9 +15,10 @@ asset Client identified by clientBID {
     o DateTime dateOfIncoporation
     o Contact contact
     o KycStatus KycStatus
-    o Identification identification
     --> Document[] documents optional
     o Person[] directors optional
+    o RiskRatingType riskRating
+    o String updatedBy
 }
 
 concept Person {
@@ -42,16 +42,25 @@ concept Address {
     o String postalCode
 }
 
-concept Identification {
-    o IdentificationType type
-    o String idNumber
-    o String expiry
-}
+// concept Identification {
+//     o IdentificationType type
+//     o String idNumber
+//     o String expiry
+// }
 
-enum IdentificationType {
-    o DRIVERS_LICENSE
-    o PASSPORT
-    o CITIZENSHIP_CARD
+// enum IdentificationType {
+//     o DRIVERS_LICENSE
+//     o PASSPORT
+//     o CITIZENSHIP_CARD
+// }
+
+enum RiskRatingType {
+    o STANDARD
+    o MEDIUM
+    o HIGH_1
+    o HIGH_2
+    o HIGH_3
+    o RESTRICTED
 }
 
 enum KycStatus {
@@ -62,11 +71,22 @@ enum KycStatus {
 
 asset Document identified by documentId {
     o String documentId
-    o IdentificationType documentType
+    o DocumentType documentType
     o String content
+    o String updatedBy
+    o String expiryDate
 }
 
 transaction AddDocumentToClient {
   --> Client client
   --> Document document
+}
+
+enum DocumentType {
+    o CERTIFICATE_OF_INCOOPERATION
+    o CLIENT_AGGREEMENT
+    o CERTIFICATE_OF_AUTHROIZED_SIGNATORIES
+    o POWER_TO_BID
+    o PEP_HIO_FORM
+    o CONFIRMATION_OF_EXISTENCE
 }
