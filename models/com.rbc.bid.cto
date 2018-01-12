@@ -11,8 +11,8 @@ asset Client identified by clientBID {
     o Address legalAddress
     o String countryOfOperation
 
-    o String countryOfIncoporation
-    o DateTime dateOfIncoporation
+    o String countryOfIncorporation
+    o DateTime dateOfIncorporation
     o Contact contact
     o KycStatus KycStatus
     --> Document[] documents optional
@@ -83,9 +83,9 @@ transaction AddDocumentToClient {
 }
 
 enum DocumentType {
-    o CERTIFICATE_OF_INCOOPERATION
-    o CLIENT_AGGREEMENT
-    o CERTIFICATE_OF_AUTHROIZED_SIGNATORIES
+    o CERTIFICATE_OF_INCORPORATION
+    o CLIENT_AGREEMENT
+    o CERTIFICATE_OF_AUTHORIZED_SIGNATORIES
     o POWER_TO_BID
     o PEP_HIO_FORM
     o CONFIRMATION_OF_EXISTENCE
