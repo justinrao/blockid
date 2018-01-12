@@ -12,24 +12,27 @@ asset Client identified by clientBID {
     o String countryOfOperation
 
     o String countryOfIncorporation
-    o DateTime dateOfIncorporation
-    o Contact contact
-    o KycStatus KycStatus
-    --> Document[] documents optional
+    o String dateOfIncorporation
+    o Contact[] contacts optional
+    o KycStatus kycStatus
     o Person[] directors optional
     o RiskRatingType riskRating
     o String updatedBy
+
+    --> Document[] documents optional
 }
 
 concept Person {
   o String name
-  o DateTime dateOfBirth 
-  o Integer percentOfHolding
+  o String dateOfBirth 
+  o String role
 }
 
 concept Contact {
     o String contactPersonalName
     o String phoneNumber
+    o String contactType
+    o String email
     o Address contactAddress
 }
 
@@ -72,6 +75,9 @@ enum KycStatus {
 asset Document identified by documentId {
     o String documentId
     o DocumentType documentType
+    o String description
+    o String filename
+    o String mediaType
     o String content
     o String updatedBy
     o String expiryDate
