@@ -18,6 +18,8 @@ asset Client identified by clientBID {
     o Person[] directors optional
     o RiskRatingType riskRating
     o String updatedBy
+    o DateTime updateTs
+    o String updateDescription
 
     --> Document[] documents optional
 }

@@ -4,6 +4,8 @@
   "description": "hyperleger composer - block ID business network",
   "scripts": {
     "test": "mocha --recursive",
+    "init": "composer runtime install --card PeerAdmin@hlfv1 --businessNetworkName blockid-network && composer network start --card PeerAdmin@hlfv1 --networkAdmin admin --networkAdminEnrollSecret adminpw --archiveFile blockid-network@0.0.1.bna --file networkadmin.card",
+    "import-card": "composer card import --file networkadmin.card",
     "pack": "composer archive create -t dir -n .",
     "update": "npm run pack && composer network update -c admin@blockid-network -a blockid-network@0.0.1.bna",
     "start-api": "composer-rest-server -c admin@blockid-network -n never -w true",
