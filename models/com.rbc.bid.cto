@@ -6,13 +6,13 @@ namespace com.rbc.bid
 asset Client identified by clientBID {
     o String clientBID
     o String legalName
-    o String holdingCompany
+    o String holdingCompany optional
     
     o Address legalAddress
     o String countryOfOperation
 
     o String countryOfIncorporation
-    o String dateOfIncorporation
+    o DateTime dateOfIncorporation
     o Contact[] contacts optional
     o KycStatus kycStatus
     o Person[] directors optional
@@ -24,7 +24,7 @@ asset Client identified by clientBID {
 
 concept Person {
   o String name
-  o String dateOfBirth 
+  o DateTime dateOfBirth 
   o String role
 }
 
@@ -80,7 +80,7 @@ asset Document identified by documentId {
     o String mediaType
     o String content
     o String updatedBy
-    o String expiryDate
+    o DateTime expiryDate
 }
 
 transaction AddDocumentToClient {
